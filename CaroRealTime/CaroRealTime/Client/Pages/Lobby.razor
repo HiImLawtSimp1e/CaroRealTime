@@ -1,0 +1,86 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager;
+
+<h3>Lobby</h3>
+
+@if(currentRoom == null)
+{
+    <input @bind="playerName" placeholder="Your Name" />
+    <input @bind="currentRoomName" placeholder="Room Name" />
+    <button @onclick="CreateRoom">Create Room</button>
+
+    <h3>Rooms:</h3>
+
+    @if (rooms != null)
+    {
+        <ul>
+            @foreach (var room in rooms)
+            {
+                <li>@room.RoomName<button @onclick="() => JoinRoom(room.RoomId)">Join Room</button></li>
+            }
+        </ul>
+    }
+
+}
+else
+{
+    <CascadingValue Value="hubConnection">
+        <Room CurrentRoom="currentRoom" />
+    </CascadingValue>
+}
+
+
+@code {
+    private HubConnection? hubConnection;
+    private string playerName = string.Empty;
+    private string currentRoomName = string.Empty;
+    private GameRoom? currentRoom;
+    private List<GameRoom>? rooms;
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+                            .WithUrl(NavigationManager.ToAbsoluteUri("/gamehub"))
+                            .Build();
+
+        hubConnection.On<List<GameRoom>>("Rooms", roomList =>
+        {
+            Console.WriteLine($"We got room! Count = {roomList.Count}");
+            rooms = roomList;
+            StateHasChanged(); 
+        });
+        await hubConnection.StartAsync();
+    }
+
+    private async Task CreateRoom()
+    {
+        if (hubConnection == null)
+        {
+            return;
+        }
+        currentRoom = await hubConnection.InvokeAsync<GameRoom>("CreateRoom",
+              currentRoomName,
+              playerName);
+    }
+
+    private async Task JoinRoom(string roomId)
+    {
+        if (hubConnection == null)
+        {
+            return;
+        }
+
+        var joinedRoom = await hubConnection.InvokeAsync<GameRoom>("JoinRoom",
+             roomId,
+             playerName);
+
+        if (joinedRoom != null)
+        {
+            currentRoom = joinedRoom;
+        }
+        else
+        {
+            Console.WriteLine("Room is full or doesn't exsst");
+        }
+    }
+}

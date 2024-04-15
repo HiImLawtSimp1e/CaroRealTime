@@ -1,0 +1,12 @@
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\bin\Debug\net6.0\CaroRealTime.Shared.deps.json
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\bin\Debug\net6.0\CaroRealTime.Shared.dll
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\bin\Debug\net6.0\CaroRealTime.Shared.pdb
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.csproj.AssemblyReference.cache
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.AssemblyInfoInputs.cache
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.AssemblyInfo.cs
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.csproj.CoreCompileInputs.cache
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.dll
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\refint\CaroRealTime.Shared.dll
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\CaroRealTime.Shared.pdb
+E:\Hoc\CaroRealTime\CaroRealTime\Shared\obj\Debug\net6.0\ref\CaroRealTime.Shared.dll
